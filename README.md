@@ -52,9 +52,13 @@ A tela inicial contará com:
 
 ##  Tecnologias Utilizadas
 - Flutter / FlutterFlow
-- Firebase
+- Computador ou notebook
+- Internet
+- Banco de dados (MySQL)
+- Ferramenta de design de interface (Figma)
+- Sistema de login e autenticação de usuários
+- Integração com mapas/localização
 - GitHub
-- API REST
 
 
 ##  Futuras melhorias

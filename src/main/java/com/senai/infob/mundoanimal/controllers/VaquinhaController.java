@@ -1,5 +1,5 @@
 package com.senai.infob.mundoanimal.controllers;
 
-public class PagamentoController {
+public class VaquinhaController {
     
 }

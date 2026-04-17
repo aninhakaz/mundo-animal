@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
@@ -37,11 +39,23 @@ public class Usuario{
     @Column(name="imagem")
     private Blob imagem;
 
+    @ManyToOne
+    @JoinColumn(name="postagem_id", nullable= false)
+    private Postagem postagem;
+
+    @ManyToOne
+    @JoinColumn(name="doacao_id", nullable= false)
+    private Doacao doacao;
+
+    @ManyToOne
+    @JoinColumn(name="vaquinha_id", nullable= false)
+    private Vaquinha vaquinha;
+
     public Usuario() {
     }
 
     public Usuario(Integer id, String nomeCompleto, LocalDate dataNascimento, String email, String cpf, String senha,
-            Blob imagem) {
+            Blob imagem, Postagem postagem, Doacao doacao) {
         Id = id;
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
@@ -49,6 +63,8 @@ public class Usuario{
         this.cpf = cpf;
         this.senha = senha;
         this.imagem = imagem;
+        this.postagem = postagem;
+        this.doacao = doacao;
     }
 
     public Integer getId() {
@@ -106,6 +122,30 @@ public class Usuario{
     public void setImagem(Blob imagem) {
         this.imagem = imagem;
     }
+
+    public Postagem getPostagem() {
+        return postagem;
+    }
+
+    public void setPostagem(Postagem postagem) {
+        this.postagem = postagem;
+    }
+
+    public Doacao getDoacao() {
+        return doacao;
+    }
+
+    public void setDoacao(Doacao doacao) {
+        this.doacao = doacao;
+    }
+
+    public Vaquinha getVaquinha() {
+        return vaquinha;
+    }
+
+    public void setVaquinha(Vaquinha vaquinha) {
+        this.vaquinha = vaquinha;
+    }
+
    
-    
 }

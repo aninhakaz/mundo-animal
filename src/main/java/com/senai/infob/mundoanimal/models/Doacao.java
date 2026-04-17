@@ -1,6 +1,8 @@
 package com.senai.infob.mundoanimal.models;
-import java.time.LocalDate;
+
 import java.util.List;
+
+import com.senai.infob.mundoanimal.enums.TipoPagamento;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,13 +24,13 @@ public class Doacao{
     private Integer Id;
 
     @Column(name="pagamento")
-    private Pagamento pagamento;
+    private TipoPagamento pagamento;
 
-    public Doacao(Pagamento pagamento) {
+    public Doacao(TipoPagamento pagamento) {
         this.pagamento = pagamento;
     }
 
-    public Pagamento getPagamento() {
+    public TipoPagamento getPagamento() {
         return pagamento;
     }
 
@@ -38,17 +40,24 @@ public class Doacao{
     @Column(name="tel_contato")
     private String telContato;
 
-    private List<Usuario> usuario;
+
+    @ManyToMany
+    @JoinTable(
+        name = "doacao_usuario",
+        joinColumns = @JoinColumn(name = "doacao_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    )
+    private List<Doacao> doacao;
 
     public Doacao() {
     }
 
-    public Doacao(Integer id, Pagamento pagamento, String material, String telContato, List<Usuario> usuario) {
+    public Doacao(Integer id, TipoPagamento pagamento, String material, String telContato, List<Doacao> doacao) {
         Id = id;
         this.pagamento = pagamento;
         this.material = material;
         this.telContato = telContato;
-        this.usuario = usuario;
+        this.doacao = doacao;
     }
 
     public Integer getId() {
@@ -59,7 +68,7 @@ public class Doacao{
         Id = id;
     }
 
-    public void setPagamento(Pagamento pagamento) {
+    public void setPagamento(TipoPagamento pagamento) {
         this.pagamento = pagamento;
     }
 
@@ -79,19 +88,12 @@ public class Doacao{
         this.telContato = telContato;
     }
 
-    public List<Usuario> getUsuario() {
-        return usuario;
+    public List<Doacao> getDoacao() {
+        return doacao;
     }
 
-    public void setUsuario(List<Usuario> usuario) {
-        this.usuario = usuario;
+    public void setDoacao(List<Doacao> doacao) {
+        this.doacao = doacao;
     }
 
-
-@ManyToMany
-    @JoinTable(
-        name = "doacao_usuario",
-        joinColumns = @JoinColumn(name = "doacao_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    )
 }

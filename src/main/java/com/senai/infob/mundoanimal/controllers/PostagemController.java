@@ -1,6 +1,5 @@
 package com.senai.infob.mundoanimal.controllers;
 
-import com.senai.infob.mundoanimal.services.PostagemService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,32 +13,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.infob.mundoanimal.models.Postagem;
+import com.senai.infob.mundoanimal.services.PostagemService;
 
 
 
 @RestController
 @RequestMapping("/postagem")
 public class PostagemController {
-    
-    
-    private final PostagemService postagemService;
+    @Autowired
+    private PostagemService postagemService;
 
-    PostagemController(PostagemService postagemService) {
-        this.postagemService = postagemService;
+    @GetMapping("/count")
+    public Long count() {
+        return postagemService.count();
     }
-
+    
     @PostMapping("/salvar")
-    public Postagem salvar(@RequestBody Postagem postagem) {
+    public Postagem salvar(Postagem postagem){
         return postagemService.salvar(postagem);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable Integer id) {
-        boolean deletou = postagemService.deletar(id);
-        if (deletou) {
-            return "=Removido com sucesso";
+    public String deletar(@PathVariable Integer id){
+       boolean deletou = postagemService.delete(id);
+       if(deletou){
+            return "Usuário removido com sucesso";
+       }
+       return "Falha ao remover o usuário";
     }
-    return "Falha ao remover";
+
+    @GetMapping("/busca/{id}")
+    public Postagem busca(@PathVariable Integer id) {
+        return postagemService.busca(id);
+    }
+
+    @GetMapping("/lista")
+    public List<Postagem> lista() {
+        return postagemService.lista();
+    }
+
+    @PutMapping("/atualizar/{id}")
+    public Postagem atualizar(@PathVariable Integer id,@RequestBody Postagem postagem) {
+        return postagemService.atualizar(postagem, id);
     }
 
 }

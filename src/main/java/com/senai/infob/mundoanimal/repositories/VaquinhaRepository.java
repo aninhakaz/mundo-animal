@@ -1,5 +1,5 @@
 package com.senai.infob.mundoanimal.repositories;
 
-public class PagamentoRepository {
+public class VaquinhaRepository {
     
 }

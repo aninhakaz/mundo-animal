@@ -1,6 +1,4 @@
-package com.senai.infob.mundoanimal.models;
-
-import java.sql.Blob;
+package com.senai.infob.mundoanimal.models; 
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -8,54 +6,55 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumn; 
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.Table; 
 
 
-@Entity
-@Table(name="Usuario")
-public class Usuario{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private Integer Id;
+@Entity 
+@Table(name="Usuario") 
 
-    @Column(name="nome_completo")
-    private String nomeCompleto;
+public class Usuario{ 
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Column(name="id") 
+    private Integer Id; 
 
-    @Column(name="data_nascimento")
-    private LocalDate dataNascimento;
+    @Column(name="nome_completo") 
+    private String nomeCompleto; 
 
-    @Column(name="email")
-    private String email;
+    @Column(name="data_nascimento") 
+    private LocalDate dataNascimento; 
 
-    @Column(name="cpf")
-    private String cpf;
+    @Column(name="email") 
+    private String email; 
+ 
+    @Column(name="cpf") 
+    private String cpf; 
 
-    @Column(name="senha")
-    private String senha;
+    @Column(name="senha") 
+    private String senha; 
 
-    @Column(name="imagem")
-    private Blob imagem;
+    @Column(name="imagem") 
+    private String imagem; 
 
-    @ManyToOne
-    @JoinColumn(name="postagem_id", nullable= false)
-    private Postagem postagem;
+    @ManyToOne 
+    @JoinColumn(name="postagem_id", nullable= false) 
+    private Postagem postagem; 
 
-    @ManyToOne
-    @JoinColumn(name="doacao_id", nullable= false)
-    private Doacao doacao;
+    @ManyToOne 
+    @JoinColumn(name="doacao_id", nullable= false) 
+    private Doacao doacao; 
 
-    @ManyToOne
-    @JoinColumn(name="vaquinha_id", nullable= false)
+    @ManyToOne 
+    @JoinColumn(name="vaquinha_id", nullable= false) 
     private Vaquinha vaquinha;
 
     public Usuario() {
     }
 
     public Usuario(Integer id, String nomeCompleto, LocalDate dataNascimento, String email, String cpf, String senha,
-            Blob imagem, Postagem postagem, Doacao doacao) {
+            String imagem, Postagem postagem, Doacao doacao, Vaquinha vaquinha) {
         Id = id;
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
@@ -65,6 +64,7 @@ public class Usuario{
         this.imagem = imagem;
         this.postagem = postagem;
         this.doacao = doacao;
+        this.vaquinha = vaquinha;
     }
 
     public Integer getId() {
@@ -115,11 +115,11 @@ public class Usuario{
         this.senha = senha;
     }
 
-    public Blob getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(Blob imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
     }
 
@@ -145,7 +145,8 @@ public class Usuario{
 
     public void setVaquinha(Vaquinha vaquinha) {
         this.vaquinha = vaquinha;
-    }
+    } 
 
-   
+    
+
 }

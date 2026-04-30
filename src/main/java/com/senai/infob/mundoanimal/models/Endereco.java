@@ -19,6 +19,9 @@ public class Endereco{
     @Column(name="bairro")
     private String bairro;
 
+    @Column(name="cidade")
+    private String cidade;
+
     @Column(name="rua")
     private String rua;
 
@@ -31,9 +34,10 @@ public class Endereco{
     public Endereco() {
     }
 
-    public Endereco(Integer id, String bairro, String rua, String cep, String uf) {
+    public Endereco(Integer id, String bairro, String cidade, String rua, String cep, String uf) {
         Id = id;
         this.bairro = bairro;
+        this.cidade = cidade;
         this.rua = rua;
         this.cep = cep;
         this.uf = uf;
@@ -53,6 +57,14 @@ public class Endereco{
 
     public void setBairro(String bairro) {
         this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public String getRua() {
@@ -78,6 +90,9 @@ public class Endereco{
     public void setUf(String uf) {
         this.uf = uf;
     }
+
+    
+    
 
     
 }

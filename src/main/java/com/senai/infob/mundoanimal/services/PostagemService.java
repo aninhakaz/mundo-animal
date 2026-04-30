@@ -39,6 +39,9 @@ public class PostagemService {
         return postagemRepository.findAll();
     }
 
+    public List<Postagem> buscaPostagens(String pagina) {
+        return postagemRepository.buscaPostagens(pagina);
+    }
 
     public Postagem atualizar(Postagem postagem, Integer id){
         Postagem e = busca(id);

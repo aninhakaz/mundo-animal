@@ -47,6 +47,11 @@ public class PostagemController {
         return postagemService.busca(id);
     }
 
+    @GetMapping("/busca/{pagina}")
+    public List<Postagem> busca(@PathVariable String pagina) {
+        return postagemService.buscaPostagens(pagina);
+    }
+
     @GetMapping("/lista")
     public List<Postagem> lista() {
         return postagemService.lista();

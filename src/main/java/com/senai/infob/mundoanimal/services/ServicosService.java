@@ -3,10 +3,12 @@ package com.senai.infob.mundoanimal.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.senai.infob.mundoanimal.models.Servicos;
 import com.senai.infob.mundoanimal.repositories.ServicosRepository;
 
+@Service
 public class ServicosService {
      @Autowired
     private ServicosRepository servicosRepository;

@@ -17,10 +17,38 @@ public class UsuarioService {
         return usuarioRepository.count();
     }
 
-     public Usuario salvar(Usuario usuario) {
+    //public Usuario salvar(Usuario usuario) {
+        //return usuarioRepository.save(usuario);
+    //}
+    public Usuario salvar(Usuario usuario, String confirmarsenha, String senha) {
         return usuarioRepository.save(usuario);
     }
 
+
+    public Usuario login(String email, String senha) {
+        Usuario usuario = usuarioRepository.findByEmail(email);
+
+        if (usuario == null) {
+            System.out.println("Usuário não encontrado!");
+            return null;
+        }
+
+        if (!usuario.getSenha().equals(senha)) {
+            System.out.println("Senha incorreta!");
+            return null;
+        }
+
+        return usuario;
+    }
+
+    public Usuario cadastrarUsuario(Usuario usuario, String confirmarSenha, String senha) {
+        if (!senha.equals(confirmarSenha)) {
+            return null;
+        }
+
+        usuarioRepository.save(usuario);
+        return usuario;
+    }
     
     public boolean delete(Integer id){
         Usuario usuario = usuarioRepository.findById(id).get();

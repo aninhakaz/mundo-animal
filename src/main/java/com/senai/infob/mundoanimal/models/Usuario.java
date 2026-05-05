@@ -147,6 +147,4 @@ public class Usuario{
         this.vaquinha = vaquinha;
     } 
 
-    
-
 }

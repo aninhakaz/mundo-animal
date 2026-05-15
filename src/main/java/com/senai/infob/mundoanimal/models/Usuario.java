@@ -38,41 +38,32 @@ public class Usuario{
     @Column(name="imagem") 
     private String imagem; 
 
-    @ManyToOne 
-    @JoinColumn(name="postagem_id", nullable= false) 
+    @ManyToOne @JoinColumn(name="postagem_id", nullable= true) 
     private Postagem postagem; 
-
-    @ManyToOne 
-    @JoinColumn(name="doacao_id", nullable= false) 
+    @ManyToOne @JoinColumn(name="doacao_id", nullable= true) 
     private Doacao doacao; 
-
-    @ManyToOne 
-    @JoinColumn(name="vaquinha_id", nullable= false) 
+    @ManyToOne @JoinColumn(name="vaquinha_id", nullable= true) 
     private Vaquinha vaquinha;
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nomeCompleto, LocalDate dataNascimento, String email, String cpf, String senha,
-            String imagem, Postagem postagem, Doacao doacao, Vaquinha vaquinha) {
-        Id = id;
-        this.nomeCompleto = nomeCompleto;
+    public Usuario(Integer Id, String cpf, LocalDate dataNascimento, String email, String imagem, String nomeCompleto, String senha) {
+        this.Id = Id;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.email = email;
-        this.cpf = cpf;
-        this.senha = senha;
         this.imagem = imagem;
-        this.postagem = postagem;
-        this.doacao = doacao;
-        this.vaquinha = vaquinha;
+        this.nomeCompleto = nomeCompleto;
+        this.senha = senha;
     }
 
     public Integer getId() {
         return Id;
     }
 
-    public void setId(Integer id) {
-        Id = id;
+    public void setId(Integer Id) {
+        this.Id = Id;
     }
 
     public String getNomeCompleto() {
@@ -123,28 +114,5 @@ public class Usuario{
         this.imagem = imagem;
     }
 
-    public Postagem getPostagem() {
-        return postagem;
-    }
-
-    public void setPostagem(Postagem postagem) {
-        this.postagem = postagem;
-    }
-
-    public Doacao getDoacao() {
-        return doacao;
-    }
-
-    public void setDoacao(Doacao doacao) {
-        this.doacao = doacao;
-    }
-
-    public Vaquinha getVaquinha() {
-        return vaquinha;
-    }
-
-    public void setVaquinha(Vaquinha vaquinha) {
-        this.vaquinha = vaquinha;
-    } 
 
 }

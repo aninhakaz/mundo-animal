@@ -20,10 +20,6 @@ public class UsuarioService {
     //public Usuario salvar(Usuario usuario) {
         //return usuarioRepository.save(usuario);
     //}
-    public Usuario salvar(Usuario usuario, String confirmarsenha, String senha) {
-        return usuarioRepository.save(usuario);
-    }
-
 
     public Usuario login(String email, String senha) {
         Usuario usuario = usuarioRepository.findByEmail(email);

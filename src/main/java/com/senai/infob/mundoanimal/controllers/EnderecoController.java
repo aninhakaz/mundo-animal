@@ -35,9 +35,9 @@ public class EnderecoController {
     public String deletar(@PathVariable Integer id){
        boolean deletou = enderecoService.delete(id);
        if(deletou){
-            return "Usuário removido com sucesso";
+            return "Endereço removido com sucesso";
        }
-       return "Falha ao remover o usuário";
+       return "Falha ao remover o endereço";
     }
 
     

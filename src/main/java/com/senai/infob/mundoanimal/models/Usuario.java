@@ -38,12 +38,12 @@ public class Usuario{
     // @Column(name="imagem") 
     // private String imagem; 
 
-    @ManyToOne @JoinColumn(name="postagem_id", nullable= true) 
-    private Postagem postagem; 
-    @ManyToOne @JoinColumn(name="doacao_id", nullable= true) 
-    private Doacao doacao; 
-    @ManyToOne @JoinColumn(name="vaquinha_id", nullable= true) 
-    private Vaquinha vaquinha;
+    // @ManyToOne @JoinColumn(name="postagem_id", nullable= true) 
+    // private Postagem postagem; 
+    // @ManyToOne @JoinColumn(name="doacao_id", nullable= true) 
+    // private Doacao doacao; 
+    // @ManyToOne @JoinColumn(name="vaquinha_id", nullable= true) 
+    // private Vaquinha vaquinha;
 
     public Usuario() {
     }

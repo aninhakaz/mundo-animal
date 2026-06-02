@@ -35,8 +35,8 @@ public class Usuario{
     @Column(name="senha") 
     private String senha; 
 
-    @Column(name="imagem") 
-    private String imagem; 
+    // @Column(name="imagem") 
+    // private String imagem; 
 
     @ManyToOne @JoinColumn(name="postagem_id", nullable= true) 
     private Postagem postagem; 
@@ -48,12 +48,12 @@ public class Usuario{
     public Usuario() {
     }
 
-    public Usuario(Integer Id, String cpf, LocalDate dataNascimento, String email, String imagem, String nomeCompleto, String senha) {
+    public Usuario(Integer Id, String cpf, LocalDate dataNascimento, String email, String nomeCompleto, String senha) {
         this.Id = Id;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.email = email;
-        this.imagem = imagem;
+        // this.imagem = imagem;
         this.nomeCompleto = nomeCompleto;
         this.senha = senha;
     }
@@ -106,13 +106,13 @@ public class Usuario{
         this.senha = senha;
     }
 
-    public String getImagem() {
-        return imagem;
-    }
+    // public String getImagem() {
+    //     return imagem;
+    // }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
-    }
-
+    // public void setImagem(String imagem) {
+    //     this.imagem = imagem;
+    // }
+//  String imagem,
 
 }

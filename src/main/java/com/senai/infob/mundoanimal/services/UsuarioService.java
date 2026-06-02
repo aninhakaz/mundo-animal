@@ -73,15 +73,15 @@ public class UsuarioService {
         return null;
     }
 
-    public void atualizarFotoPerfil(Integer usuarioId, String urlFoto) { 
-        Usuario usuario = usuarioRepository.findById(usuarioId) 
-            .orElseThrow(() -> new RuntimeException("Usuário não encontrado")); 
+//     public void atualizarFotoPerfil(Integer usuarioId, String urlFoto) { 
+//         Usuario usuario = usuarioRepository.findById(usuarioId) 
+//             .orElseThrow(() -> new RuntimeException("Usuário não encontrado")); 
 
  
-        usuario.setImagem(urlFoto); 
-        usuarioRepository.save(usuario); 
+//         usuario.setImagem(urlFoto); 
+//         usuarioRepository.save(usuario); 
 
-} 
+// } 
 
  
 }

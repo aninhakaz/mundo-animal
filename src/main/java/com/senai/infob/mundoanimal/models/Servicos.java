@@ -24,18 +24,18 @@ public class Servicos{
     @Column(name="descricao")
     private String descricao;
 
-    @ManyToOne
-        @JoinColumn(name="usuario_id", nullable = false)
-        private Usuario usuario;
+    // @ManyToOne
+    //     @JoinColumn(name="usuario_id", nullable = false)
+    //     private Usuario usuario;
 
     public Servicos() {
     }
 
-    public Servicos(Integer id, String nomeServico, String descricao, Usuario usuario) {
+    public Servicos(Integer id, String nomeServico, String descricao) {
         Id = id;
         this.nomeServico = nomeServico;
         this.descricao = descricao;
-        this.usuario = usuario;
+        // this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -62,13 +62,13 @@ public class Servicos{
         this.descricao = descricao;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+    // public Usuario getUsuario() {
+    //     return usuario;
+    // }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+    // public void setUsuario(Usuario usuario) {
+    //     this.usuario = usuario;
+    // }
 
         
 

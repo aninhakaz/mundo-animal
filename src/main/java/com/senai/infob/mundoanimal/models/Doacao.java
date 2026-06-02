@@ -41,23 +41,23 @@ public class Doacao{
     private String telContato;
 
 
-    @ManyToMany
-    @JoinTable(
-        name = "doacao_usuario",
-        joinColumns = @JoinColumn(name = "doacao_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    )
-    private List<Doacao> doacao;
+    // @ManyToMany
+    // @JoinTable(
+    //     name = "doacao_usuario",
+    //     joinColumns = @JoinColumn(name = "doacao_id", referencedColumnName = "id"),
+    //     inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    // )
+    // private List<Doacao> doacao;
 
     public Doacao() {
     }
 
-    public Doacao(Integer id, TipoPagamento pagamento, String material, String telContato, List<Doacao> doacao) {
+    public Doacao(Integer id, TipoPagamento pagamento, String material, String telContato) {
         Id = id;
         this.pagamento = pagamento;
         this.material = material;
         this.telContato = telContato;
-        this.doacao = doacao;
+        // this.doacao = doacao;
     }
 
     public Integer getId() {
@@ -88,12 +88,12 @@ public class Doacao{
         this.telContato = telContato;
     }
 
-    public List<Doacao> getDoacao() {
-        return doacao;
-    }
+    // public List<Doacao> getDoacao() {
+    //     return doacao;
+    // }
 
-    public void setDoacao(List<Doacao> doacao) {
-        this.doacao = doacao;
-    }
+    // public void setDoacao(List<Doacao> doacao) {
+    //     this.doacao = doacao;
+    // }
 
 }

@@ -47,13 +47,13 @@ public class Postagem{
     private JCheckBox paginas;
 
 
-    @ManyToMany
-    @JoinTable(
-        name = "postagem_usuario",
-        joinColumns = @JoinColumn(name = "postagem_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    )
-    private List<Postagem> postagem;
+    // @ManyToMany
+    // @JoinTable(
+    //     name = "postagem_usuario",
+    //     joinColumns = @JoinColumn(name = "postagem_id", referencedColumnName = "id"),
+    //     inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    // )
+    // private List<Postagem> postagem;
 
     
     public Postagem() {

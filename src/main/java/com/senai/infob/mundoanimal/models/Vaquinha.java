@@ -33,13 +33,13 @@ public class Vaquinha{
     @Column(name="forma_pagamento")
     private String formaPagamento;
 
-    @ManyToMany
-    @JoinTable(
-        name = "vaquinha_usuario",
-        joinColumns = @JoinColumn(name = "vaquinha_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    )
-    private List<Vaquinha> vaquinha;
+    // @ManyToMany
+    // @JoinTable(
+    //     name = "vaquinha_usuario",
+    //     joinColumns = @JoinColumn(name = "vaquinha_id", referencedColumnName = "id"),
+    //     inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    // )
+    // private List<Vaquinha> vaquinha;
 
     @Enumerated(EnumType.STRING)
     private TipoPagamento tipoPagamento;
@@ -47,13 +47,12 @@ public class Vaquinha{
     public Vaquinha() {
     }
 
-    public Vaquinha(Integer id, String name, String descricao, String formaPagamento, List<Vaquinha> vaquinha,
+    public Vaquinha(Integer id, String name, String descricao, String formaPagamento,
             TipoPagamento tipoPagamento) {
         Id = id;
         this.name = name;
         this.descricao = descricao;
         this.formaPagamento = formaPagamento;
-        this.vaquinha = vaquinha;
         this.tipoPagamento = tipoPagamento;
     }
 
@@ -89,14 +88,6 @@ public class Vaquinha{
         this.formaPagamento = formaPagamento;
     }
 
-    public List<Vaquinha> getVaquinha() {
-        return vaquinha;
-    }
-
-    public void setVaquinha(List<Vaquinha> vaquinha) {
-        this.vaquinha = vaquinha;
-    }
-
     public TipoPagamento getTipoPagamento() {
         return tipoPagamento;
     }
@@ -104,6 +95,5 @@ public class Vaquinha{
     public void setTipoPagamento(TipoPagamento tipoPagamento) {
         this.tipoPagamento = tipoPagamento;
     }
-
     
 }
